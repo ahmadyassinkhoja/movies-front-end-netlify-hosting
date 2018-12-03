@@ -10,14 +10,14 @@ export class MoviesService {
 
   }
   // server movies url
-  moviesurl = 'http://176.58.106.10:8500/movies'
+  moviesurl = 'https://movies-web.herokuapp.com/movies'
 
   // getting data from server
   movies = this.http.get(this.moviesurl)
 
   getMovie(id){
     console.log(id)
-    let movie = this.http.get(`http://176.58.106.10:8500/getMovie/${id}`)
+    let movie = this.http.get(`https://movies-web.herokuapp.com/${id}`)
     if(movie){
       return movie
     }
@@ -39,7 +39,7 @@ export class MoviesService {
       };
 
       // server movies add url
-      const addmoviesurl = 'http://176.58.106.10:8500/addMovie'
+      const addmoviesurl = 'https://movies-web.herokuapp.com/addMovie'
 
       this.http.post(addmoviesurl,newMovie, httpOptions) .subscribe(data => {
         console.log(data);
@@ -61,7 +61,7 @@ export class MoviesService {
       })
     };
 
-    const updateMovieUrl = `http://176.58.106.10:8500/updateMovie/${movie._id}`
+    const updateMovieUrl = `https://movies-web.herokuapp.com/${movie._id}`
 
     this.http.put(updateMovieUrl,movie, httpOptions) .subscribe(data => {
       console.log(data);
@@ -79,7 +79,7 @@ export class MoviesService {
     };
 
     // server movies add url
-    const deleteMovie = `http://176.58.106.10:8500/deleteMovie/${movie._id}`
+    const deleteMovie = `https://movies-web.herokuapp.com/${movie._id}`
 
     this.http.delete(deleteMovie, httpOptions) .subscribe(data => {
       console.log(data);

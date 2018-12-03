@@ -10,14 +10,14 @@ export class MoviesService {
 
   }
   // server movies url
-  moviesurl = 'https://8080-dot-5010449-dot-devshell.appspot.com/movies'
+  moviesurl = 'http://176.58.106.10:8500/movies'
 
   // getting data from server
   movies = this.http.get(this.moviesurl)
 
   getMovie(id){
     console.log(id)
-    let movie = this.http.get(`https://8080-dot-5010449-dot-devshell.appspot.com/getMovie/${id}`)
+    let movie = this.http.get(`http://176.58.106.10:8500/getMovie/${id}`)
     if(movie){
       return movie
     }
@@ -39,7 +39,7 @@ export class MoviesService {
       };
 
       // server movies add url
-      const addmoviesurl = 'https://8080-dot-5010449-dot-devshell.appspot.com/addMovie'
+      const addmoviesurl = 'http://176.58.106.10:8500/addMovie'
 
       this.http.post(addmoviesurl,newMovie, httpOptions) .subscribe(data => {
         console.log(data);
@@ -61,7 +61,7 @@ export class MoviesService {
       })
     };
 
-    const updateMovieUrl = `https://8080-dot-5010449-dot-devshell.appspot.com/updateMovie/${movie._id}`
+    const updateMovieUrl = `http://176.58.106.10:8500/updateMovie/${movie._id}`
 
     this.http.put(updateMovieUrl,movie, httpOptions) .subscribe(data => {
       console.log(data);
@@ -79,7 +79,7 @@ export class MoviesService {
     };
 
     // server movies add url
-    const deleteMovie = `https://8080-dot-5010449-dot-devshell.appspot.com/deleteMovie/${movie._id}`
+    const deleteMovie = `http://176.58.106.10:8500/deleteMovie/${movie._id}`
 
     this.http.delete(deleteMovie, httpOptions) .subscribe(data => {
       console.log(data);
